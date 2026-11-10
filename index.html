@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨雨泽 | 作业展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf7f2;
+            --ink: #1a1a2e;
+            --coral: #e85d4a;
+            --teal: #2a9d8f;
+            --sun: #e9c46a;
+            --lavender: #9b8de3;
+            --rose: #f4a6b8;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Serif SC', serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 背景纹理 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(26, 26, 46, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 26, 46, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+        }
+
+        /* 背景blob */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--rose);
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--sun);
+            bottom: -50px;
+            right: -100px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        /* 头部 */
+        header {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .header-eyebrow {
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--coral);
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: rgba(26, 26, 46, 0.6);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .meta {
+            display: flex;
+            gap: 24px;
+            font-size: 0.9rem;
+            color: rgba(26, 26, 46, 0.5);
+            font-family: sans-serif;
+        }
+
+        .meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .meta-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+        }
+
+        /* 区块标题 */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(26, 26, 46, 0.1), transparent);
+        }
+
+        /* 作业卡片 */
+        .assignment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .assignment-item {
+            background: white;
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(26, 26, 46, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .assignment-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--coral), var(--sun), var(--teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .assignment-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(26, 26, 46, 0.12);
+        }
+
+        .assignment-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .assignment-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(232, 93, 74, 0.1), rgba(155, 141, 227, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .assignment-content {
+            flex: 1;
+        }
+
+        .assignment-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .assignment-desc {
+            color: rgba(26, 26, 46, 0.6);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .assignment-tags {
+            display: flex;
+            gap: 8px;
+        }
+
+        .assignment-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: sans-serif;
+        }
+
+        .tag-coral { background: rgba(232, 93, 74, 0.1); color: var(--coral); }
+        .tag-teal { background: rgba(42, 157, 143, 0.1); color: var(--teal); }
+
+        /* 关于我 */
+        .about-section {
+            margin-bottom: 60px;
+        }
+
+        .about-text {
+            color: rgba(26, 26, 46, 0.7);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* 底部 */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(26, 26, 46, 0.1);
+            text-align: center;
+            color: rgba(26, 26, 46, 0.4);
+            font-size: 0.85rem;
+            font-family: sans-serif;
+        }
+
+        footer a {
+            color: var(--coral);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .container {
+                padding: 60px 20px;
+            }
+
+            .assignment-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="header-eyebrow">吉林大学 · 课程作业</div>
+            <h1>你好，我是<em>杨雨泽</em></h1>
+            <p class="subtitle">这里是我的系统工程课程作业展示</p>
+            <div class="meta">
+                <span><span class="meta-dot"></span>GitHub: boweny67</span>
+                <span><span class="meta-dot"></span>更新于 2026-11-08</span>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-title">课程作业</h2>
+            <div class="assignment-list">
+                <a href="assignment1/" class="assignment-item">
+                    <div class="assignment-thumb">🧠</div>
+                    <div class="assignment-content">
+                        <div class="assignment-title">机器增强的人机混合神经系统</div>
+                        <p class="assignment-desc">围绕"机器增强的人机混合神经系统"，拆解任务-体系-整机-系统-子系统-模块六层架构，生物与人工系统并列融合。</p>
+                        <div class="assignment-tags">
+                            <span class="assignment-tag tag-coral">系统工程</span>
+                            <span class="assignment-tag tag-teal">小组作业 1</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2 class="section-title">关于我</h2>
+            <p class="about-text">
+                吉林大学在读学生，这里是我的课程作业展示页面。所有作业均通过 GitHub Pages 提交，欢迎老师查看。
+            </p>
+        </section>
+
+        <footer>
+            <p>由 <a href="https://github.com/boweny67">boweny67</a> 制作 · Powered by GitHub Pages</p>
+        </footer>
+    </div>
+</body>
+</html>
