@@ -4,51 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>小组作业索引 · 机器增强的人机混合神经系统</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
 <style>
   :root{
-    --bg:#070b16;--card:#101a30;--line:#1f3055;
-    --cyan:#22d3ee;--blue:#3b82f6;--muted:#93a4c4;
+    --bg:#F5F2EC;--paper:#FFFFFF;--ink:#222A26;--ink2:#4A524D;--muted:#6E6A5E;--line:#E5DFD2;
+    --green:#2F5D50;--green-soft:#E9F0ED;--ochre:#9A6B2F;--ochre-soft:#F5ECDD;--navy:#33506B;--navy-soft:#EAEFF3;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
-    background:radial-gradient(ellipse at 50% -10%, #12325e 0%, #070b16 60%);
-    color:#e6edf7;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    padding:40px 20px;line-height:1.6;
-  }
+  body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 20px;line-height:1.7;-webkit-font-smoothing:antialiased}
   .wrap{max-width:760px;width:100%}
-  .tag{
-    display:inline-block;padding:4px 14px;border:1px solid var(--cyan);
-    border-radius:999px;color:var(--cyan);font-size:12px;letter-spacing:2px;
-    margin-bottom:20px;background:rgba(34,211,238,.08);
-  }
-  h1{
-    font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.3;
-    background:linear-gradient(90deg,#fff,var(--cyan) 60%,var(--blue));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    margin-bottom:10px;
-  }
-  .sub{color:var(--muted);margin-bottom:36px;font-size:15px}
-  .item{
-    display:block;text-decoration:none;color:inherit;
-    background:linear-gradient(180deg,var(--card),#0c1426);
-    border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:14px;
-    transition:.2s;position:relative;overflow:hidden;
-  }
-  .item:hover{border-color:var(--cyan);transform:translateY(-2px)}
-  .item .num{
-    font-family:Consolas,monospace;color:var(--cyan);font-size:13px;
-    letter-spacing:1px;margin-bottom:6px;
-  }
-  .item h2{font-size:19px;margin-bottom:6px;color:#fff}
-  .item p{color:var(--muted);font-size:14px;margin-bottom:10px}
-  .item .url{
-    font-family:Consolas,monospace;font-size:13px;color:var(--cyan);
-  }
-  .item .go{
-    position:absolute;right:22px;top:50%;transform:translateY(-50%);
-    color:var(--cyan);font-size:22px;opacity:.6;
-  }
+  .tag{display:inline-block;padding:6px 16px;border:1px solid var(--line);border-radius:999px;color:var(--green);font-size:12px;letter-spacing:.24em;margin-bottom:22px;background:var(--paper)}
+  h1{font-family:"Noto Serif SC",serif;font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.35;letter-spacing:.02em;margin-bottom:10px}
+  .sub{color:var(--muted);margin-bottom:34px;font-size:15px}
+  .item{display:block;text-decoration:none;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 64px 22px 26px;margin-bottom:16px;transition:.2s;position:relative;box-shadow:0 1px 2px rgba(34,42,38,.05)}
+  .item:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 6px 18px rgba(47,93,80,.10)}
+  .item .num{font-family:Consolas,monospace;color:var(--green);font-size:12.5px;letter-spacing:.08em;margin-bottom:8px}
+  .item h2{font-family:"Noto Serif SC",serif;font-size:18px;margin-bottom:6px;color:var(--ink);font-weight:700}
+  .item p{color:var(--ink2);font-size:14px;margin-bottom:10px}
+  .item .url{font-family:Consolas,monospace;font-size:12.5px;color:var(--muted)}
+  .item .go{position:absolute;right:24px;top:50%;transform:translateY(-50%);color:var(--green);font-size:22px;opacity:.55}
   footer{margin-top:30px;color:var(--muted);font-size:12.5px;text-align:center}
 </style>
 </head>
@@ -56,33 +30,33 @@
 <div class="wrap">
   <span class="tag">SYSTEMS ENGINEERING · GROUP HOMEWORK</span>
   <h1>机器增强的人机混合神经系统<br>小组作业索引</h1>
-  <p class="sub">本页汇总所有已提交作业的在线链接，点击进入对应作业。</p>
+  <p class="sub">本页汇总各次作业的在线链接，点击进入对应作业；后续作业持续追加到本页。</p>
 
   <a class="item" href="https://ssggaa1949.github.io/hmhns-homework/">
     <div class="num">作业 1 · 2026-11-11</div>
-    <h2>系统层级分解（任务→体系→整机→系统→子系统→模块）</h2>
-    <p>按六级结构对"机器增强的人机混合神经系统"进行功能分解与集成说明，含感知—决策—执行—反馈闭环示意图。</p>
+    <h2>系统层级分解</h2>
+    <p>按任务—体系—整机—系统—子系统—模块六级结构完成功能分解与集成说明，含感知—决策—执行—反馈闭环示意图。</p>
     <div class="url">ssggaa1949.github.io/hmhns-homework/</div>
     <div class="go">→</div>
   </a>
 
   <a class="item" href="https://ssggaa1949.github.io/hmhns-concept/">
     <div class="num">作业 2 · 2026-11-18</div>
-    <h2>概念定义：BRS &amp; StRS 需求规格说明</h2>
-    <p>依据 ISO/IEC/IEEE 29148:2018 表 4-1 与表 4-5，输出业务需求规格、ConOps/OpsCon、相关方矩阵与 15 条可追溯需求。</p>
+    <h2>概念定义：BRS &amp; StRS 需求规格</h2>
+    <p>依据 ISO/IEC/IEEE 29148:2018 表 4-1、表 4-5，输出业务需求规格、运行概念、相关方矩阵与 15 条可追溯需求。</p>
     <div class="url">ssggaa1949.github.io/hmhns-concept/</div>
     <div class="go">→</div>
   </a>
 
   <a class="item" href="https://ssggaa1949.github.io/hmhns-syrs/">
     <div class="num">作业 3 · 2026-11-25</div>
-    <h2>系统定义：SyRS 需求规格 · 初始架构 · STPA 安全分析</h2>
-    <p>依据 ISO/IEC/IEEE 29148:2018 表 5-1 输出系统需求规格书与顶层控制框图；基于 STPA 四步法识别不安全控制动作，派生安全需求与双层安全架构。</p>
+    <h2>系统定义：SyRS · 初始架构 · STPA 安全分析</h2>
+    <p>依据表 5-1 输出系统需求规格书与顶层控制框图；基于 STPA 识别不安全控制动作，派生安全需求与双层安全架构。</p>
     <div class="url">ssggaa1949.github.io/hmhns-syrs/</div>
     <div class="go">→</div>
   </a>
 
-  <footer>小组作业汇总页 · GitHub Pages · 后续作业将持续追加到本页</footer>
+  <footer>小组作业汇总页 · GitHub Pages · 后续作业持续追加到本页</footer>
 </div>
 </body>
 </html>
